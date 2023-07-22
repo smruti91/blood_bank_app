@@ -5,6 +5,8 @@ const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
 const cors = require('cors');
+const connectDB = require('./config/db');
+
 
 
 //dotenv config
@@ -23,6 +25,8 @@ app.use('/api/v1/',router)
 //PORT
 PORT = process.env.PORT || 5000;
 
+//mongodb connection
+connectDB();
 //listen
 
 app.listen(PORT, (req, res) => {
