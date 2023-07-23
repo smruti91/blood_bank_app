@@ -6,8 +6,7 @@ const colors = require('colors');
 const morgan = require('morgan');
 const cors = require('cors');
 const connectDB = require('./config/db');
-
-
+const authRoutes = require('./routes/authRoutes');
 
 //dotenv config
 dotenv.config()
@@ -22,6 +21,7 @@ app.use(morgan('dev'));
 
 // routes
 app.use('/api/v1/',router)
+app.use('/api/v1/auth', authRoutes )
 //PORT
 PORT = process.env.PORT || 5000;
 
