@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
-
+const inventoryRoutes = require('./routes/inventoryRoutes');
 //dotenv config
 dotenv.config()
 
@@ -22,6 +22,8 @@ app.use(morgan('dev'));
 // routes
 app.use('/api/v1/',router)
 app.use('/api/v1/auth', authRoutes )
+app.use('/api/v1/inventory',inventoryRoutes)
+
 //PORT
 PORT = process.env.PORT || 5000;
 

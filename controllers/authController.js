@@ -48,6 +48,14 @@ const loginController = async(req,res)=>{
             error
         })
     }
+    //check roll
+
+    if(user.role !== req.body.role){
+      return res.status(500).send({
+         success:false,
+         message:"Invalid roles"
+      })
+    }
     //compare password
     const comparePassword = await bcrypt.compare(req.body.password, user.password);
     if(!comparePassword){
